@@ -1,0 +1,25 @@
+import discord
+import os
+
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('hva gjør du?'):
+        await message.channel.send('Jeg svarer på spesifike spørsmål')
+
+
+    if message.content.startswith('hvordan gjør du det?'):
+        await message.channel.send('jeg ser hva du sender og svarer med et svar som har blitt bestemt fra før av')
+
+    if message.content.startswith(''):
+        await message.channel.send('')
+
+client.run('OTM5MTE5MDExMDQ2NzUyMjg2.Yf0MvA.UqmlN2FSPG3vGT8OGSo3FynYjyY')
